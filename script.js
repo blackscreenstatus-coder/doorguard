@@ -29,13 +29,13 @@ if (yearEl) {
 }
 
 
-// ===== Hero door slider =====
-(function () {
-  const slider = document.getElementById('doorSlider');
-  const track = document.getElementById('sliderTrack');
-  const dotsWrap = document.getElementById('sliderDots');
-  const prevBtn = document.getElementById('sliderPrev');
-  const nextBtn = document.getElementById('sliderNext');
+// ===== Reusable image slider =====
+function initSlider({ sliderId, trackId, dotsId, prevId, nextId, interval = 4000 }) {
+  const slider = document.getElementById(sliderId);
+  const track = document.getElementById(trackId);
+  const dotsWrap = document.getElementById(dotsId);
+  const prevBtn = document.getElementById(prevId);
+  const nextBtn = document.getElementById(nextId);
 
   if (!slider || !track) return;
 
@@ -47,7 +47,7 @@ if (yearEl) {
   // Build navigation dots
   for (let i = 0; i < total; i++) {
     const dot = document.createElement('button');
-    dot.setAttribute('aria-label', 'Go to door ' + (i + 1));
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
     dot.addEventListener('click', () => goTo(i));
     dotsWrap.appendChild(dot);
   }
@@ -69,7 +69,7 @@ if (yearEl) {
 
   function restart() {
     clearInterval(timer);
-    timer = setInterval(next, 4000);
+    timer = setInterval(next, interval);
   }
 
   if (nextBtn) nextBtn.addEventListener('click', next);
@@ -81,4 +81,23 @@ if (yearEl) {
 
   update();
   restart();
-})();
+}
+
+// Hero door slider
+initSlider({
+  sliderId: 'doorSlider',
+  trackId: 'sliderTrack',
+  dotsId: 'sliderDots',
+  prevId: 'sliderPrev',
+  nextId: 'sliderNext',
+});
+
+// Features section slider
+initSlider({
+  sliderId: 'featureSlider',
+  trackId: 'featureTrack',
+  dotsId: 'featureDots',
+  prevId: 'featurePrev',
+  nextId: 'featureNext',
+  interval: 4500,
+});

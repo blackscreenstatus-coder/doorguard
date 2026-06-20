@@ -126,11 +126,19 @@
   <section class="section section--alt" id="features">
     <div class="container features__inner">
       <div class="features__visual">
-        <div class="badge-grid">
-          <span>Rust Proof</span>
-          <span>Durable</span>
-          <span>Elegant</span>
-          <span>Affordable</span>
+        <!-- Full-height feature slider. Replace src with your own photos later. -->
+        <div class="slider slider--fill" id="featureSlider">
+          <div class="slider__viewport">
+            <div class="slider__track" id="featureTrack">
+              <div class="slide"><img src="images/feature1.jpg" alt="Quality steel door 1" /></div>
+              <div class="slide"><img src="images/feature2.jpg" alt="Quality steel door 2" /></div>
+              <div class="slide"><img src="images/feature3.jpg" alt="Quality steel door 3" /></div>
+              <div class="slide"><img src="images/feature4.jpg" alt="Quality steel door 4" /></div>
+            </div>
+          </div>
+          <button class="slider__btn slider__btn--prev" id="featurePrev" aria-label="Previous image">&#8249;</button>
+          <button class="slider__btn slider__btn--next" id="featureNext" aria-label="Next image">&#8250;</button>
+          <div class="slider__dots" id="featureDots"></div>
         </div>
       </div>
       <div class="features__content">
