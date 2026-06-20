@@ -184,47 +184,83 @@ a { color: inherit; text-decoration: none; }
 .hero__stats strong { font-size: 1.5rem; color: var(--steel); }
 .hero__stats span { font-size: 0.82rem; color: var(--text-soft); }
 
-/* Hero visual — a stylised steel door */
+/* Hero visual — door image slider */
 .hero__visual { display: flex; justify-content: center; }
-.hero__card {
+.slider {
+  position: relative;
   width: 100%;
-  max-width: 340px;
+  max-width: 360px;
   aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
   background: linear-gradient(145deg, #ffffff, #e9f0f8);
   border: 1px solid var(--border);
-  border-radius: 20px;
   box-shadow: var(--shadow);
+}
+.slider__viewport { width: 100%; height: 100%; overflow: hidden; }
+.slider__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Prev / Next buttons */
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
-  padding: 30px;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--steel-dark);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  z-index: 2;
 }
-.door {
-  position: relative;
-  width: 70%;
-  height: 90%;
-  background: linear-gradient(135deg, var(--steel-light), var(--steel));
-  border-radius: 10px 10px 6px 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 16px;
-  box-shadow: inset 0 0 0 4px rgba(255,255,255,0.15);
-}
-.door__panel {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.12);
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-}
-.door__handle {
+.slider__btn:hover { background: var(--amber); color: #fff; }
+.slider__btn--prev { left: 12px; }
+.slider__btn--next { right: 12px; }
+/* Dots */
+.slider__dots {
   position: absolute;
-  right: 14px;
-  top: 50%;
-  width: 8px;
-  height: 40px;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 2;
+}
+.slider__dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.slider__dots button.active {
   background: var(--amber);
-  border-radius: 6px;
-  transform: translateY(-50%);
+  transform: scale(1.3);
 }
 
 
@@ -390,7 +426,7 @@ a { color: inherit; text-decoration: none; }
   .contact { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
   .hero__visual { order: -1; }
-  .hero__card { max-width: 260px; }
+  .slider { max-width: 280px; }
 
   .nav {
     position: fixed;

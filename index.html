@@ -68,12 +68,24 @@
         </ul>
       </div>
       <div class="hero__visual">
-        <div class="hero__card">
-          <div class="door">
-            <div class="door__panel"></div>
-            <div class="door__panel"></div>
-            <div class="door__handle"></div>
+        <!-- ===== Door image slider =====
+             To use your own photos: replace the src of each <img> below
+             (e.g. src="images/your-door.jpg"). Keep 6 slides or add/remove
+             <div class="slide">...</div> blocks as needed. -->
+        <div class="slider" id="doorSlider">
+          <div class="slider__viewport">
+            <div class="slider__track" id="sliderTrack">
+              <div class="slide"><img src="images/door1.svg" alt="Steel door design 1" /></div>
+              <div class="slide"><img src="images/door2.svg" alt="Steel door design 2" /></div>
+              <div class="slide"><img src="images/door3.svg" alt="Steel door design 3" /></div>
+              <div class="slide"><img src="images/door4.svg" alt="Steel door design 4" /></div>
+              <div class="slide"><img src="images/door5.svg" alt="Steel door design 5" /></div>
+              <div class="slide"><img src="images/door6.svg" alt="Steel door design 6" /></div>
+            </div>
           </div>
+          <button class="slider__btn slider__btn--prev" id="sliderPrev" aria-label="Previous door">&#8249;</button>
+          <button class="slider__btn slider__btn--next" id="sliderNext" aria-label="Next door">&#8250;</button>
+          <div class="slider__dots" id="sliderDots"></div>
         </div>
       </div>
     </div>
