@@ -247,16 +247,32 @@
   <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer__brand">
+      <!-- Column 1: Brand -->
+      <div class="footer__col footer__brand">
         <span class="brand__mark">MM</span>
         <div>
           <strong>MM Enterprises</strong>
           <p>Steel Doors, construction materials, and interior &amp; exterior solutions in Salcete, Goa.</p>
         </div>
       </div>
-      <div class="footer__contact">
-        <p>📍 Shop 24, 25, 26, Dheeraj Residency, Bacbhatt, Raia, Salcete, Goa</p>
-        <p>📞 <a href="tel:+919890130929">98901 30929</a></p>
+
+      <!-- Column 2: Site links -->
+      <div class="footer__col">
+        <h4 class="footer__title">Sitelinks</h4>
+        <ul class="footer__links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Gallery</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Location & contact -->
+      <div class="footer__col">
+        <h4 class="footer__title">Location &amp; Contact</h4>
+        <p class="footer__line">📍 Shop 24, 25, 26, Dheeraj Residency, Bacbhatt, Raia, Salcete, Goa</p>
+        <p class="footer__line">📞 <a href="tel:+919890130929">98901 30929</a></p>
       </div>
     </div>
     <div class="footer__bottom">
@@ -265,6 +281,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <span class="scroll-top__arrow">&#8593;</span>
+  </button>
 
   <script src="script.js"></script>
 </body>

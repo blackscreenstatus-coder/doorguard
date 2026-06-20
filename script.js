@@ -101,3 +101,25 @@ initSlider({
   nextId: 'featureNext',
   interval: 4500,
 });
+
+
+// ===== Scroll to top button =====
+(function () {
+  const btn = document.getElementById('scrollTop');
+  if (!btn) return;
+
+  function toggle() {
+    if (window.scrollY > 400) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  }
+
+  window.addEventListener('scroll', toggle, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  toggle();
+})();
